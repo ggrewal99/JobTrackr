@@ -11,6 +11,7 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     position: relative;
+    overflow-x: hidden;
 }
 
 .nav {
@@ -55,8 +56,6 @@ body {
     width: 40%;
     height: 100%;
     background-color: #3661d7;
-    /* background: rgb(53,75,94);
-    background: linear-gradient(67deg, rgba(53,75,94,0.4598214285714286) 0%, rgba(54,97,215,1) 79%); */
 }
 
 .title-section--2 {
@@ -66,6 +65,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     background-color: #e8eeff;
+    color: #3661d7;
 }
 
 .title-1, .title-2, .letter-r {
@@ -101,6 +101,58 @@ body {
     text-transform: none;
     padding: 1rem 2rem;
     border-radius: 1rem;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: rgb(99, 99, 99);
+    background-color: #d0dcff;
+    padding: 4rem 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 40%;
+}
+
+.footer--title {
+    font-size: 2rem;
+}
+
+.footer--links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    width: 100%;
+}
+
+.footer--links-about, .footer--links-tos, .footer--links-policy {
+    text-decoration: none;
+    text-transform: none;
+    color: rgb(99, 99, 99);
+}
+
+.footer--logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer--logos img {
+    width: 70%;
+}
+
+.x-logo {
+    width: 60% !important;
 }
 
 
