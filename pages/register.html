@@ -3,17 +3,17 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JobTrackr</title>
+        <title>Register</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="./assets/styles/styles.css" />
+        <link rel="stylesheet" href="../assets/styles/styles.css" />
+        <link rel="stylesheet" href="../assets/styles/register.css" />
     </head>
     <body>
-        <div class="bg-blue"></div>
         <div class="nav">
             <div class="nav-title-div">
                 <h1 class="nav--title-link">
@@ -27,24 +27,34 @@
                 <a
                     href="../../pages/login.html"
                     class="nav--links nav--login-link"
-                    >Log In<span></span
-                ></a>
+                    >Log In</a
+                >
                 <a href="/" class="nav--links nav--about-link">About</a>
                 <a href="/" class="nav--links nav--contact-link">Contact</a>
             </div>
         </div>
-        <div class="title-section">
-            <div class="title-section--1"><h1 class="title-1">Job</h1></div>
-            <div class="title-section--2">
-                <h1 class="title-2">Track</h1>
-                <h1 class="letter-r">r</h1>
-            </div>
-            <div class="main-btn">
-                <a href="./pages/register.html" class="get-started-btn"
-                    >Get Started</a
-                >
+
+        <div class="register-content">
+            <div class="register-form">
+                <h1 class="register-form--title">Sign Up</h1>
+                <div class="register--inputs">
+                    <input type="text" placeholder="Name" class="form-name" />
+                    <input type="text" placeholder="Email" class="form-email" />
+                    <input
+                        type="password"
+                        placeholder="Password*"
+                        class="form-password"
+                    />
+                    <input
+                        type="password"
+                        placeholder="Confirm Password*"
+                        class="form-confirm-password"
+                    />
+                </div>
+                <button class="btn-reg">Sign Up</button>
             </div>
         </div>
+
         <div class="footer">
             <div class="footer-content">
                 <h1 class="footer--title">JobTrackr</h1>
@@ -77,6 +87,6 @@
                 <p class="copyright">&copy; 2023 JobTrackr</p>
             </div>
         </div>
-        <script src="script.js"></script>
+        <script src="../script.js"></script>
     </body>
 </html>

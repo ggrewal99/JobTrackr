@@ -1,0 +1,238 @@
+html {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif !important;
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-blue {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 40%;
+    height: 100%;
+    background-color: #3661d7;
+}
+
+.nav {
+    /* position: absolute;
+    top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav div {
+    padding-top: 4rem;
+}
+
+.nav-title-div {
+    width: 40%;
+    background-color: #3661d7;
+    text-align: center;
+}
+
+.nav--title-link {
+    font-size: 3rem;
+    color: white;
+    text-decoration: none;
+    text-transform: none;
+    width: 100%;
+}
+
+.nav-links-div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 60%;
+    padding-right: 10%;
+    gap: 4%;
+}
+
+.nav--links {
+    text-decoration: none;
+    text-transform: none;
+    font-size: 2rem;
+    color: #3661d7;
+    /* flex: 0.1; */
+    text-align: center;
+    padding: 0;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: all 0.5s;
+}
+
+.nav--login-link:hover,
+.nav--about-link:hover,
+.nav--contact-link:hover {
+    background-color: #e8e8e8;
+    transition: all 0.5s;
+}
+
+.title-section {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.title-section--1 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    background-color: #3661d7;
+}
+
+.title-section--2 {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #3661d7;
+}
+
+.title-1,
+.title-2,
+.letter-r {
+    font-size: 20rem;
+    font-weight: 500;
+}
+
+.title-1 {
+    transform: translateY(-45%);
+    color: #ffffff;
+}
+
+.title-2 {
+    transform: translateY(-20%);
+}
+
+.letter-r {
+    transform: translateY(-45%);
+}
+
+.main-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 30%;
+    transform: translateX(-50%);
+}
+
+.get-started-btn {
+    /* background-color: #3661d7; */
+    /* color: white; */
+    color: #3661d7;
+    font-size: 3rem;
+    text-decoration: none;
+    text-transform: none;
+    padding: 1rem 2rem;
+    border: 2px solid #3661d7;
+    border-radius: 1rem;
+    transition: 0.5s;
+}
+
+.get-started-btn:hover {
+    background-color: #3661d7;
+    color: white;
+    transition: all 0.5s;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: rgb(0, 0, 0);
+    /* background-color: #8aa7ff; */
+    background-color: #eeeeee;
+    padding: 4rem 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 40%;
+    line-height: 4rem;
+}
+
+.footer--title {
+    font-size: 2rem;
+}
+
+.footer--links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.footer--links-about:hover,
+.footer--links-tos:hover,
+.footer--links-policy:hover {
+    text-decoration: underline;
+    color: #3661d7;
+    transition: all 0.2s;
+}
+
+.footer--links-about,
+.footer--links-tos,
+.footer--links-policy {
+    text-decoration: none;
+    text-transform: none;
+    color: rgb(0, 0, 0);
+}
+
+.footer--logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer--logos img {
+    width: 70%;
+}
+
+.x-logo {
+    width: 60% !important;
+}
+
+.linkedin-logo,
+.x-logo,
+.facebook-logo {
+    transition: all 0.5s;
+}
+
+.linkedin-logo:hover,
+.x-logo:hover,
+.facebook-logo:hover {
+    transform: translateY(-10%);
+    transition: all 0.5s;
+}
