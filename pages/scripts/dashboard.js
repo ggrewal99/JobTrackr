@@ -1,0 +1,3 @@
+const BACKEND_URL = "http://localhost:3000";
+
+document.addEventListener("DOMContentLoaded", function () {});
