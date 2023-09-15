@@ -1,0 +1,284 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    /* height: 100vh; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    /* background-color: #e8eeff; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+}
+
+.gradient-bg {
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; */
+}
+
+.dashboard-content {
+    min-height: 100vh;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    letter-spacing: 0.3rem;
+}
+
+.sidebar {
+    width: 18vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3661d7;
+    padding: 3rem 0;
+    color: white;
+}
+
+.heading {
+    height: 20%;
+    width: 100%;
+    line-height: 3rem;
+    text-align: center;
+}
+
+.sidebar--tabs {
+    height: 80%;
+}
+
+.title-link {
+    font-size: 3.5rem;
+    color: white;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 0.3rem;
+}
+
+.sidebar--tabs {
+    width: 100%;
+}
+
+.sidebar--tabs ul {
+    list-style: none;
+    font-size: 1.8rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.sidebar--tabs li {
+    width: 100%;
+    padding-left: 18%;
+    display: flex;
+    gap: 1rem;
+    transition: all 0.3s;
+    align-items: center;
+}
+
+.tab-link:hover {
+    background-color: #1c41a7 !important;
+    /* color: black; */
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.tab-link {
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-link:hover {
+    cursor: pointer;
+}
+
+.dashboard-icon {
+    height: 4rem !important;
+    width: 4rem;
+    align-self: center;
+}
+
+.add-icon {
+    height: 3.1rem;
+    width: 3.1rem;
+    align-self: center;
+    margin: 0 0.3rem;
+}
+
+.add-span {
+    padding-left: 0.1rem;
+}
+
+.content {
+    width: 82vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: normal;
+}
+
+.content--heading-div {
+    height: 8%;
+    padding: 3rem 7rem;
+    color: black;
+}
+
+.content--grid-div {
+    height: 92%;
+    background-color: #eff3ff;
+    padding: 3rem 7rem;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.sidebar-btns {
+    border: none;
+    font-family: "Poppins", sans-serif;
+    background-color: transparent;
+    color: white;
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+}
+
+.sidebar-btns:hover {
+    cursor: pointer;
+}
+
+/* VIEW JOBS SECTION */
+
+.content--grid {
+    display: grid;
+    display: none;
+    gap: 5rem;
+    width: 100%;
+    height: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: white;
+    width: 80%;
+    border-radius: 1rem;
+    justify-self: center;
+    padding: 1rem 2rem;
+    background-color: #3661d7;
+    color: white;
+}
+
+.card-main {
+    grid-column: 1/4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-main-content-value {
+    align-self: flex-end;
+}
+
+.pending {
+    color: rgb(238, 87, 87);
+}
+
+.wip {
+    color: rgb(255, 193, 79);
+}
+
+.status {
+    font-size: 1.4rem;
+}
+
+
+/* ADD JOB SECTION */
+
+.add-job-div {
+    width: 50%;
+    height: 70%;
+    background-color: white;
+    margin: 5rem 3rem;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #3661d7; */
+    color: black;
+}
+
+.add-job-title {
+    font-size: 4rem !important;
+    height: 20%;
+}
+
+.add-job-form {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0rem 0;
+}
+
+.add-job-div input, .add-job-div select {
+    width: 100%;
+    border-radius: 0.5rem;
+    height: 3rem;
+    border: 1px solid gray;
+    font-size: 1.5rem;
+    padding: 2rem 1rem;
+    color: black;
+    font-family: "Poppins", sans-serif;
+}
+
+.add-job-div select {
+    padding: 1rem 0.5rem;
+    height: auto;
+}
+
+.form-add-btn {
+    font-size: 2rem;
+    color: white;
+    background-color: #3661d7;
+    border: none;
+    border-radius: 0.5rem;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.form-add-btn:hover {
+    background-color: #1c41a7;
+    cursor: pointer;
+}
+
+
+
+
+
