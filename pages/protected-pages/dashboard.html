@@ -15,6 +15,36 @@
     </head>
     <body>
         <div class="gradient-bg"></div>
+        <div class="update-card-popup">
+            <div class="fields">
+                <label for="company" name="company">Company</label>
+                <input type="text" class="company-update">
+            </div>
+            <div class="fields">
+                <label for="position" name="position">Position</label>
+                <input type="text" class="position-update">
+            </div>
+            <div class="fields">  
+                <label for="status" name="status">Status</label>
+                <select id="status" class="status-update">
+                <option value="">Please select</option>
+                <option value="Pending">Pending</option>
+                <option value="In progress">In progress</option>
+                <option value="Declined">Declined</option>
+                <option value="Accepted">Accepted</option>
+                </select>
+            </div>
+            <div class="update-popup-btns">
+                <button class="update-btn" disabled>Update</button>
+                <button class="cancel-btn">Cancel</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+            <!-- <div class="confirm-delete">
+                <button class="delete-btn">Delete Job</button>
+                <button class="cancel-btn">Cancel</button>
+            </div> -->
+        </div>
+        <div class="update-card-backdrop"></div>
         <div class="dashboard-content">
             <div class="sidebar">
                 <div class="heading">
@@ -23,9 +53,8 @@
                 </div>
                 <div class="sidebar--tabs">
                     <ul>
-                        <button class="tab-link sidebar-btns view-jobs-btn"><li><img src="../../assets/icons/icons8-dashboard-65.png" alt="Dashboard icon" class="dashboard-icon"><span>View Jobs</span></li>
-                        </a>
-                        <button class="tab-link sidebar-btns add-job-btn"><li><img src="../../assets/icons/icons8-add-120.png" alt="Add icon" class="add-icon"><span class="add-span">Add Job</span></li></a>
+                        <button class="tab-link sidebar-btns view-jobs-btn" onclick="viewJobsData()"><li><img src="../../assets/icons/icons8-dashboard-65.png" alt="Dashboard icon" class="dashboard-icon"><span>View Jobs</span></li></button>
+                        <button class="tab-link sidebar-btns add-job-btn"><li><img src="../../assets/icons/icons8-add-120.png" alt="Add icon" class="add-icon"><span class="add-span">Add Job</span></li></button>
                     </ul>
                 </div>
             </div>
@@ -35,102 +64,49 @@
                 </div>
                 <div class="content--grid-div">
                     <div class="content--grid view-jobs-div">
-                        <div class="card card-main">
-                            <div class="card-main-content">
-                                <h2 class="card-main-content-title">Total jobs</h2>
-                                <h1 class="card-main-content-value jobCount">10</h1>
+                        <div class='card card-main'>
+                            <div class='card-main-content'>
+                                <h2 class='card-main-content-title'>Total jobs</h2>
+                                <h1 class='card-main-content-value jobCount'>0</h1>
                             </div>
-                            <div class="card-main-content">
-                                <h2 class="card-main-content-title">Pending</h2>
-                                <h1 class="card-main-content-value pendingCount">0</h1>
+                            <div class='card-main-content'>
+                                <h2 class='card-main-content-title'>Pending</h2>
+                                <h1 class='card-main-content-value pendingCount'>0</h1>
                             </div>
-                            <div class="card-main-content">
-                                <h2 class="card-main-content-title">In progress</h2>
-                                <h1 class="card-main-content-value inProgressCount">0</h1>
+                            <div class='card-main-content'>
+                                <h2 class='card-main-content-title'>In progress</h2>
+                                <h1 class='card-main-content-value inProgressCount'>0</h1>
                             </div>
-                            <div class="card-main-content">
-                                <h2 class="card-main-content-title">Declined</h2>
-                                <h1 class="card-main-content-value declinedCount">0</h1>
+                            <div class='card-main-content'>
+                                <h2 class='card-main-content-title'>Declined</h2>
+                                <h1 class='card-main-content-value declinedCount'>0</h1>
                             </div>
-                            <div class="card-main-content">
-                                <h2 class="card-main-content-title">Accepted</h2>
-                                <h1 class="card-main-content-value acceptedCount">0</h1>
+                            <div class='card-main-content'>
+                                <h2 class='card-main-content-title'>Accepted</h2>
+                                <h1 class='card-main-content-value acceptedCount'>0</h1>
                             </div>
                         </div>
-                        <!-- <div class="card">
-                            <h1>Meta</h1>
-                            <h2>Full Stack Developer</h2>
-                            <p class="status">Status: <span class="wip">In progress</span></p>
-                        </div>
-                        <div class="card">
-                            <h1>Google</h1>
-                            <h2>Frontend Developer</h2>
-                            <p class="status">Status: <span class="pending">Pending</span></p>
-                        </div>
-                        <div class="card">
-                            <h1>Meta</h1>
-                            <h2>Full Stack Developer</h2>
-                            <p class="status">Status: <span class="wip">In progress</span></p>
-                        </div>
-                        <div class="card">
-                            <h1>Meta</h1>
-                            <h2>Full Stack Developer</h2>
-                            <p class="status">Status: <span class="wip">In progress</span></p>
-                        </div>
-                        <div class="card">
-                            <h1>Google</h1>
-                            <h2>Frontend Developer</h2>
-                            <p class="status">Status: <span class="pending">Pending</span></p>
-                        </div>
-                        <div class="card">
-                            <h1>Meta</h1>
-                            <h2>Full Stack Developer</h2>
-                            <p class="status">Status: <span class="wip">In progress</span></p>
-                        </div>
-                        <div class="card">
-                            <h1>Meta</h1>
-                            <h2>Full Stack Developer</h2>
-                            <p class="status">Status: <span class="wip">In progress</span></p>
-                        </div>
-                        <div class="card">
-                            <h1>Google</h1>
-                            <h2>Frontend Developer</h2>
-                            <p class="status">Status: <span class="pending">Pending</span></p>
-                        </div>
-                        <div class="card">
-                            <h1>Meta</h1>
-                            <h2>Full Stack Developer</h2>
-                            <p class="status">Status: <span class="wip">In progress</span></p>
-                        </div>
-                        <div class="card">
-                            <h1>Meta</h1>
-                            <h2>Full Stack Developer</h2>
-                            <p class="status">Status: <span class="wip">In progress</span></p>
-                        </div>
-                        <div class="card">
-                            <h1>Google</h1>
-                            <h2>Frontend Developer</h2>
-                            <p class="status">Status: <span class="pending">Pending</span></p>
-                        </div> -->
+                        <div class="job-cards"></div>
+                        <!-- <button class="delete-btn" onclick="deleteJob()">Test delete</button> -->
                     </div>
-
 
                     <div class="add-job-div">
                         <h1 class="add-job-title">Add a job</h1>
                         <div class="add-job-form">
-                        <label for="company">Company</label>
-                        <input type="text" name="company">
-                        <label for="position">Position</label>
-                        <input type="text" name="position" id="test">
-                        <label for="status">Status</label>
-                        <select name="status" id="status">
+                        <label for="company" name="company">Company</label>
+                        <input type="text" class="company">
+                        <label for="position" name="position">Position</label>
+                        <input type="text" class="position">
+                        <label for="status" name="status">Status</label>
+                        <select id="status" class="status">
                             <option value="">Please select</option>
-                            <option value="pending">Pending</option>
-                            <option value="progress">In progress</option>
-                            <option value="declined">Declined</option>
-                            <option value="accepted">Accepted</option>
+                            <option value="Pending">Pending</option>
+                            <option value="In progress">In progress</option>
+                            <option value="Declined">Declined</option>
+                            <option value="Accepted">Accepted</option>
                         </select>
                         <button class="form-add-btn">Add</button>
+                        <p class="msg"></p>
                     </div>
                     </div>
                 </div>
@@ -168,6 +144,6 @@
                 <p class="copyright">&copy; 2023 JobTrackr</p>
             </div>
             <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-            <script src="../scripts/dashboard.js"></script>
+            <script type = "text/javascript" src="../scripts/dashboard.js"></script>
     </body>
 </html>

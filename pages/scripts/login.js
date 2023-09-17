@@ -57,8 +57,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    passwordInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            loginBtn.click();
+        }
+    });
+
     function isValidForm(email, password) {
-        resetForm();
+        // resetForm();
 
         if (email !== "" && password !== "") {
             if (checkForErrors(email)) {
