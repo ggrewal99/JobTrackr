@@ -42,7 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then((data) => {
                     localStorage.setItem("token", data.token);
                     displayMessage("Success!", "green"); // Temporary success message
-                    window.location.href = `${BACKEND_URL}/pages/protected-pages/dashboard.html`;
+                    window.location.href =
+                        "/pages/protected-pages/dashboard.html";
                     resetForm();
                 })
                 .catch((error) => {
