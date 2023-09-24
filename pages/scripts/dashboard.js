@@ -13,7 +13,9 @@ const positionInput = document.querySelector(".position");
 const statusInput = document.querySelector(".status");
 const addBtnForm = document.querySelector(".form-add-btn");
 const msg = document.querySelector(".msg");
+const updateCard = document.querySelector(".update-card-popup");
 const updateCardBackdrop = document.querySelector(".update-card-backdrop");
+const confirmBackdrop = document.querySelector(".confirm-backdrop");
 
 msg.style.display = "none";
 
@@ -79,51 +81,52 @@ const viewJobsData = () => {
         });
 };
 
+const confirm = (action, message) => {
+    if (action === "delete") {
+        message.textContent = "Are you sure you want to delete this job?";
+    }
+};
+
 const deleteJob = (jobId) => {
     const toDeleteJob = document.getElementById(jobId);
+    const confirmCard = document.querySelector(".confirm-card");
+    const confirmQues = document.querySelector(".confirm-question");
+    const yesBtn = document.querySelector(".confirm-yes");
+    const noBtn = document.querySelector(".confirm-no");
+    confirmCard.style.display = "flex";
 
-    const confirmDelete = document.createElement("div");
-    const question = document.createElement("p");
-    const confirmBtns = document.createElement("div");
-    const yesBtn = document.createElement("button");
-    const noBtn = document.createElement("button");
+    const userResponse = confirm("delete", confirmQues);
 
-    document.body.appendChild(confirmDelete);
-    confirmDelete.appendChild(question);
-    confirmDelete.appendChild(confirmBtns);
-    confirmBtns.appendChild(yesBtn);
-    confirmBtns.appendChild(noBtn);
+    confirmBackdrop.style.display = "block";
+    confirmBackdrop.style.zIndex = "101";
 
-    question.textContent = "Are you sure?";
-    yesBtn.textContent = "Yes";
-    noBtn.textContent = "No";
+    noBtn.addEventListener("click", function () {
+        confirmCard.style.display = "none";
+        confirmBackdrop.style.display = "none";
+    });
 
-    confirmDelete.className = "confirm-delete";
-    question.className = "confirm-question";
-    confirmBtns.className = "confirm-btns";
-    yesBtn.className = "confirm-yes";
-    noBtn.className = "confirm-no";
-
-    updateCardBackdrop.style.display = "block";
-    updateCardBackdrop.style.zIndex = "101";
-    updateCardBackdrop.style.pointerEvents = "none";
-
-    // axios
-    //     .delete(`${BACKEND_URL}/api/v1/jobs/${toDeleteJob.id}`, {
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //         },
-    //     })
-    //     .then((response) => {
-    //         if (response.status === 200) {
-    //             console.log("Deleted successfully");
-    //             toDeleteJob.remove();
-    //         }
-    //     })
-    //     .catch((error) => {
-    //         console.log("Something went wrong while deleting");
-    //     });
+    yesBtn.addEventListener("click", function () {
+        axios
+            .delete(`${BACKEND_URL}/api/v1/jobs/${toDeleteJob.id}`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    console.log("Deleted successfully");
+                    toDeleteJob.remove();
+                }
+                confirmCard.style.display = "none";
+                confirmBackdrop.style.display = "none";
+                updateCardBackdrop.style.display = "none";
+                updateCard.style.display = "none";
+            })
+            .catch((error) => {
+                console.log("Something went wrong while deleting");
+            });
+    });
 };
 
 /* ADD JOBS */
@@ -165,6 +168,7 @@ addBtnForm.addEventListener("click", function (e) {
             if (response.status === 201) {
                 console.log("OK");
                 displayMessage("Added!", "green");
+                location.reload();
                 return response.data;
             } else {
                 console.log("Error!!");
@@ -182,8 +186,7 @@ addBtnForm.addEventListener("click", function (e) {
 
 /* UPDATE POPUP */
 
-const updateJob = (jobId) => {
-    const updateCard = document.querySelector(".update-card-popup");
+const viewJob = (jobId) => {
     const companyUpdateInput = document.querySelector(".company-update");
     const positionUpdateInput = document.querySelector(".position-update");
     const statusUpdateInput = document.querySelector(".status-update");
@@ -227,13 +230,11 @@ const updateJob = (jobId) => {
             populateUpdatePopup(jobData);
 
             const checkFormChange = () => {
-                console.log("gdsags");
                 if (
                     companyUpdateInput.value !== jobData.job.company ||
                     positionUpdateInput.value !== jobData.job.position ||
                     statusUpdateInput.value !== jobData.job.status
                 ) {
-                    console.log("sdgagas");
                     formUpdated = true;
                     updateBtn.disabled = false;
                     updateBtn.style.backgroundColor = "#3661d7";
@@ -248,10 +249,64 @@ const updateJob = (jobId) => {
             companyUpdateInput.addEventListener("input", checkFormChange);
             positionUpdateInput.addEventListener("input", checkFormChange);
             statusUpdateInput.addEventListener("input", checkFormChange);
+            updateBtn.addEventListener("click", function () {
+                if (formUpdated) {
+                    let updatedData = {};
+                    if (companyUpdateInput.value !== jobData.job.company) {
+                        updatedData.company = companyUpdateInput.value;
+                    }
+                    if (positionUpdateInput.value !== jobData.job.position) {
+                        updatedData.position = positionUpdateInput.value;
+                    }
+                    if (statusUpdateInput.value !== jobData.job.status) {
+                        updatedData.status = statusUpdateInput.value;
+                    }
+                    console.log(updatedData);
+                    console.log("Token check:", localStorage.getItem("token"));
+                    axios
+                        .patch(
+                            `${BACKEND_URL}/api/v1/jobs/${jobId}`,
+                            updatedData,
+                            {
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization: `Bearer ${localStorage.getItem(
+                                        "token"
+                                    )}`,
+                                },
+                            }
+                        )
+                        .then((response) => {
+                            if (response.status === 200) {
+                                console.log("OK");
+                                console.log("Successfully updated!");
+
+                                location.reload();
+
+                                return response.data;
+                            } else {
+                                console.log("Error!!");
+                                throw new Error(
+                                    "Something went wrong. Try again later!"
+                                );
+                            }
+                        })
+                        .catch((error) => {
+                            if (error.response.status === 401) {
+                                console.log(
+                                    "Error while updating: Unauthorized"
+                                );
+                            } else {
+                                console.log("Something went wrong");
+                            }
+                            return;
+                        });
+                }
+            });
         })
         .catch((error) => {
             if (error.response && error.response.status === 401) {
-                console.log("Error");
+                console.log("Unauthorized");
             } else {
                 console.log("Something went wrong");
             }
@@ -330,7 +385,7 @@ const populateViewJobs = (data) => {
                 currentEditIcon.style.display = "none";
             });
             div.addEventListener("click", function () {
-                updateJob(this.id);
+                viewJob(this.id);
             });
         })(editIcon);
     }
