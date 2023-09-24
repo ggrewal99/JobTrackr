@@ -1,4 +1,4 @@
-const BACKEND_URL = "http://localhost:3000";
+const BACKEND_URL = "https://jobtrackr-hicn.onrender.com";
 
 document.addEventListener("DOMContentLoaded", function () {
     const nameInput = document.querySelector(".form-name");

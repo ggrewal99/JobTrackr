@@ -1,4 +1,4 @@
-const BACKEND_URL = "http://localhost:3000";
+const BACKEND_URL = "https://jobtrackr-hicn.onrender.com";
 
 document.addEventListener("DOMContentLoaded", function () {
     const nameInput = document.querySelector(".form-name");
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     resetForm();
                 })
                 .catch((error) => {
-                    if (error.response.status === 401) {
+                    if (error.response && error.response.status === 401) {
                         displayMessage("Invalid email or password!");
                     } else {
                         displayMessage(

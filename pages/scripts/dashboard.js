@@ -2,7 +2,7 @@
 //     window.location.href = "/pages/login.html";
 // }
 
-const BACKEND_URL = "http://localhost:3000";
+const BACKEND_URL = "https://jobtrackr-hicn.onrender.com";
 const viewBtn = document.querySelector(".view-jobs-btn");
 const addBtn = document.querySelector(".add-job-btn");
 const viewJobsDiv = document.querySelector(".view-jobs-div");
