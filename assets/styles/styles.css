@@ -73,7 +73,7 @@ body {
 .nav--links {
     text-decoration: none;
     text-transform: none;
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: #3661d7;
     /* flex: 0.1; */
     text-align: center;
@@ -86,7 +86,7 @@ body {
 
 .nav--login-link:hover,
 .nav--about-link:hover,
-.nav--contact-link:hover {
+.nav--contact-link:hover, .links:hover {
     background-color: #e8e8e8;
     transition: all 0.5s;
 }

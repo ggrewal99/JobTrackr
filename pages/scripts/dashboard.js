@@ -1,3 +1,7 @@
+// if (!localStorage.getItem("token")) {
+//     window.location.href = "/pages/login.html";
+// }
+
 const BACKEND_URL = "http://localhost:3000";
 const viewBtn = document.querySelector(".view-jobs-btn");
 const addBtn = document.querySelector(".add-job-btn");
@@ -16,8 +20,26 @@ const msg = document.querySelector(".msg");
 const updateCard = document.querySelector(".update-card-popup");
 const updateCardBackdrop = document.querySelector(".update-card-backdrop");
 const confirmBackdrop = document.querySelector(".confirm-backdrop");
+const signOutLink = document.querySelector(".signout-link");
 
 msg.style.display = "none";
+
+signOutLink.addEventListener("click", function () {
+    localStorage.removeItem("token");
+    console.log(localStorage.getItem("token"));
+    signOutLink.href = "/pages/login.html";
+    history.replaceState(null, null, "/pages/login.html");
+});
+
+const verifyLogin = () => {
+    if (!localStorage.getItem("token")) {
+        const message = document.createElement("h1");
+        document.body.appendChild(message);
+
+        message.innerHTML =
+            "User logged out. Head to <a href='/pages/login.html'>login page</a>";
+    }
+};
 
 /* VIEW JOBS */
 
@@ -397,4 +419,15 @@ function displayMessage(text, color) {
     msg.style.display = "block";
 }
 
-document.addEventListener("DOMContentLoaded", viewJobsData);
+const showViewJobs = () => {
+    addJobDiv.style.display = "none";
+    viewJobsDiv.style.display = "grid";
+    viewBtn.style.backgroundColor = "#1c41a7";
+    addBtn.style.backgroundColor = "#3661d7";
+
+    viewJobsData();
+};
+
+// Initially, set "View Jobs" as selected and show its content
+showViewJobs();
+document.addEventListener("DOMContentLoaded", verifyLogin);

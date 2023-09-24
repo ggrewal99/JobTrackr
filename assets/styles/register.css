@@ -84,6 +84,7 @@ body {
     border: none;
     border-radius: 1rem;
     transition: all 0.5s;
+    padding: 0.7rem 0;
 }
 
 .btn-reg:hover {

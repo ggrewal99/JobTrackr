@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     localStorage.setItem("token", data.token);
                     displayMessage("Success!", "green"); // Temporary success message
                     window.location.href = `${BACKEND_URL}/pages/protected-pages/dashboard.html`;
+                    resetForm();
                 })
                 .catch((error) => {
                     if (error.response.status === 401) {

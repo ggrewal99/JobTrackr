@@ -138,10 +138,21 @@ body {
 }
 
 .content--heading-div {
-    height: 8%;
-    padding: 3rem 7rem;
+    height: 10%;
+    padding: 3rem 10rem;
     color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
 }
+
+.signout-link {
+    text-decoration: none;
+    color: #3661d7;
+    height: auto !important;
+}
+
 
 .content--grid-div {
     height: 92%;
@@ -150,6 +161,8 @@ body {
     display: flex;
     /* justify-content: center;
     align-items: center; */
+    /* background: url("/assets/images/sincerely-media-gPnHi8AmO5k-unsplash.jpg");
+    background-size: cover; */
 }
 
 .sidebar-btns {
@@ -389,6 +402,7 @@ button:hover {
     justify-content: center;
     /* background-color: #3661d7; */
     color: black;
+    border-radius: 1rem;
 }
 
 .add-job-title {
