@@ -1,0 +1,170 @@
+@media (max-width: 1100px) {
+    html {
+        font-size: 56.25%;
+    }
+
+    .title-1,
+    .title-2,
+    .letter-r {
+        font-size: 15rem;
+        font-weight: 500;
+    }
+
+    .get-started-btn {
+        /* background-color: #3661d7; */
+        /* color: white; */
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 740px) {
+    html {
+        font-size: 50%;
+    }
+
+    .title-section {
+        flex-direction: column;
+        height: 70vh;
+    }
+
+    .title-section--1, .title-section--2 {
+        width: 100%;
+        /* height: 50%; */
+        justify-content: center;
+        
+    }
+
+    .title-1, .title-2 {
+        justify-content: center;
+        transform: translateY(0);
+    }
+
+    .title-1 {
+        align-self: flex-end;
+    }
+
+    .title-2 {
+        align-self: flex-start;
+    }
+
+    .letter-r {
+        transform: translateY(-55%);
+    }
+
+    .bg-blue {
+        background-color: transparent;
+        width: 0;
+        height: 0;
+    }
+
+    .nav-title-div {
+        background-color: transparent;
+    }
+
+    .nav--title-link {
+        color: #3661d7;
+    }
+
+    .footer--links {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        width: 100%;
+    }
+
+    .main-btn {
+        bottom: 12%;
+    }
+}
+
+@media (max-width: 500px) {
+
+    html {
+        font-size: 43.75%;
+    }   
+
+    .nav {
+        padding-right: 5%;
+    }
+
+    .nav-links-div {
+        background-color: rgba(255, 255, 255, 0.97);
+        position: absolute;
+        top: 0%;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        padding: 10% 0 !important;
+        margin: 0;
+        transform: translateX(100%);
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s ease-in;
+
+        /* Hide navigation */
+        /* Allows no transitions */
+        /* display: none; */
+
+        /* 1) Hide the element visually*/
+        opacity: 0;
+
+        /* 2) Make it inaccessibile to mouse and keyboard */
+        pointer-events: none;
+
+        /* Hide it from screen readers */
+        visibility: hidden;
+    }
+
+    .nav--links {
+        font-size: 5rem;
+        height: auto;
+    }
+
+    .btn-mobile-nav {
+        display: block;
+        align-self: flex-end;
+    }
+
+    .open {
+        display: block;
+    }
+
+    .nav-open .nav-links-div {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        transform: translateX(0);
+    }
+
+    .nav-open .close {
+        display: block;
+        position: relative;
+        z-index: 2;
+    }
+
+    .nav-open .open {
+        display: none;
+    }
+
+    .main-btn {
+        bottom: 10%;
+    }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5){
+
+  html,
+  body{
+    width:100%;
+    overflow-x:hidden;
+  }
+
+}
