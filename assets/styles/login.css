@@ -16,12 +16,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
 }
 
 .login-content {
     width: 60%;
-    min-height: 100%;
+    /* min-height: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,11 +28,11 @@ body {
 }
 
 .nav-title-div {
-    background-color: white;
+    background-color: white !important;
 }
 
 .nav--title-link {
-    color: #3661d7;
+    color: #3661d7 !important;
 }
 
 .close {
@@ -53,6 +52,7 @@ body {
     box-shadow: 2px 5px 11px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: 2px 5px 11px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px 5px 11px 0px rgba(0,0,0,0.75);
+    gap: 1rem;
 }
 
 .click-here {

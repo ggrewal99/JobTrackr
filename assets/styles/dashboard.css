@@ -220,6 +220,7 @@ body {
     justify-content: space-between;
     align-items: center;
     align-self: start;
+    pointer-events: none;
 }
 
 .card-main-content {

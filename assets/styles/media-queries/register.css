@@ -3,39 +3,31 @@
         font-size: 62.5%;
     }
     
-    .login-content {
+    .register-content {
         width: 100% !important;
     }
 
-    .login-form {
+    .register-form {
         width: 80%;
     }
 }
 
 @media (max-width: 500px) {
 
-    /* .html {
-        font-size: 62.5% !important;
-    } */
-
-    .login-content {
+    .register-content {
         width: 100%;
         padding: 7rem 0;
     }
 
-    .login--inputs {
+    .register--inputs {
         width: 100%;
     }
 
-    .login--inputs {
+    .register--inputs {
         font-size: 3rem;
     }
 
-    .click-here {
-        font-size: 2rem !important;
-    }
-
-    .login-form input {
+    .register-form input {
         font-size: 2rem !important;
     }
 }

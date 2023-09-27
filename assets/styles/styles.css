@@ -104,6 +104,7 @@ body {
 .icon-mobile-nav {
     height: 4rem;
     width: 4rem;
+    padding: 0.5rem;
 }
 
 .close {
@@ -258,4 +259,13 @@ body {
 .facebook-logo:hover {
     transform: translateY(-10%);
     transition: all 0.5s;
+}
+
+.address {
+    text-align: center;
+}
+
+.copyright {
+    text-align: center;
+    /* line-height: 2rem !important; */
 }
