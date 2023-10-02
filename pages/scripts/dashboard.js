@@ -23,6 +23,7 @@ const confirmBackdrop = document.querySelector(".confirm-backdrop");
 const signOutLink = document.querySelector(".signout-link");
 const account = document.querySelector(".account");
 const dropdown = document.querySelector(".dropdown");
+const loading = document.querySelector(".loading");
 
 msg.style.display = "none";
 
@@ -56,6 +57,7 @@ const verifyLogin = () => {
 /* VIEW JOBS */
 
 const viewJobsData = () => {
+    setloading();
     var pendingCounter = 0,
         inProgressCounter = 0,
         declinedCounter = 0,
@@ -88,6 +90,7 @@ const viewJobsData = () => {
             }
         })
         .then((data) => {
+            setloading();
             console.log(data);
 
             jobCount.textContent = data.count;
@@ -112,6 +115,7 @@ const viewJobsData = () => {
             populateViewJobs(data);
         })
         .catch((error) => {
+            setloading();
             // console.log(localStorage.getItem("token"));
             if (error.response && error.response.status === 401) {
                 console.log("Error");
@@ -456,6 +460,10 @@ const showViewJobs = () => {
     });
 
     viewJobsData();
+};
+
+const setloading = () => {
+    loading.classList.toggle("show");
 };
 
 // Initially, set "View Jobs" as selected and show its content

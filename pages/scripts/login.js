@@ -11,12 +11,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const registerBtn = document.querySelector(".btn-reg");
     const msg = document.querySelector(".msg");
 
+    const loading = document.querySelector(".loading");
+
     loginBtn.addEventListener("click", function (e) {
         e.preventDefault();
         const email = emailInput.value.trim();
         const password = passwordInput.value;
 
         if (isValidForm(email, password)) {
+            setloading();
             const formData = {
                 email: email,
                 password: password,
@@ -40,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 })
                 .then((data) => {
+                    setloading();
                     localStorage.setItem("token", data.token);
                     localStorage.setItem("name", data.user.name);
                     displayMessage("Success!", "green"); // Temporary success message
@@ -48,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     resetForm();
                 })
                 .catch((error) => {
+                    setloading();
                     if (error.response && error.response.status === 401) {
                         displayMessage("Invalid email or password!");
                     } else {
@@ -115,4 +120,8 @@ document.addEventListener("DOMContentLoaded", function () {
         emailInput.classList.remove("form-field-error");
         passwordInput.classList.remove("form-field-error");
     }
+
+    const setloading = () => {
+        loading.classList.toggle("show");
+    };
 });

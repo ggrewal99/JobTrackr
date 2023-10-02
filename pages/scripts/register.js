@@ -10,8 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const registerBtn = document.querySelector(".btn-reg");
     const msg = document.querySelector(".msg");
 
+    const loading = document.querySelector(".loading");
+
     registerBtn.addEventListener("click", function (e) {
         e.preventDefault();
+        setloading();
         const name = nameInput.value.trim();
         const email = emailInput.value.trim();
         const password = passwordInput.value.trim();
@@ -34,25 +37,26 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (response.ok) {
                         console.log("OK");
                         return response.json();
+                    } else if (response.status == 422) {
+                        throw new Error("User with this email already exists!");
                     } else {
                         throw new Error(
-                            "Something went wrong. Try again later!"
+                            "Something went wrong. Try again later!",
+                            "red"
                         );
                     }
                 })
                 .then((data) => {
+                    setloading();
                     displayMessage("User created!", "green"); // Temporary success message
+                    localStorage.setItem("token", data.token);
+                    localStorage.setItem("name", data.user.name);
+                    window.location.href =
+                        "/pages/protected-pages/dashboard.html";
                 })
                 .catch((error) => {
-                    if (error.status === 401) {
-                        displayMessage(
-                            "Invalid email or password. Please try again."
-                        );
-                    }
-                    displayMessage(
-                        "Something went wrong. Try again later!",
-                        "red"
-                    );
+                    setloading();
+                    displayMessage(error.message, "red");
                 });
         }
     });
@@ -144,4 +148,8 @@ document.addEventListener("DOMContentLoaded", function () {
         passwordInput.classList.remove("form-field-error");
         confirmPasswordInput.classList.remove("form-field-error");
     }
+
+    const setloading = () => {
+        loading.classList.toggle("show");
+    };
 });
