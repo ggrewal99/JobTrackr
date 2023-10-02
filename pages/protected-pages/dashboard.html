@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         <title>Dashboard</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,6 +12,11 @@
         />
         <link rel="stylesheet" href="../../assets/styles/styles.css" />
         <link rel="stylesheet" href="../../assets/styles/dashboard.css" />
+        <link
+            rel="stylesheet"
+            href="../../assets/styles/media-queries/styles.css"
+        />
+        <link rel="stylesheet" href="../../assets/styles/media-queries/dashboard.css">
     </head>
     <body>
         <div class="gradient-bg"></div>
@@ -58,14 +63,27 @@
                 <div class="sidebar--tabs">
                     <ul>
                         <button class="tab-link sidebar-btns view-jobs-btn" onclick="viewJobsData()"><li><img src="../../assets/icons/icons8-dashboard-65.png" alt="Dashboard icon" class="dashboard-icon"><span>View Jobs</span></li></button>
-                        <button class="tab-link sidebar-btns add-job-btn"><li><img src="../../assets/icons/icons8-add-120.png" alt="Add icon" class="add-icon"><span class="add-span">Add Job</span></li></button>
+                        <button class="tab-link sidebar-btns add-job-btn" onclick="addJobsForm()"><li><img src="../../assets/icons/icons8-add-120.png" alt="Add icon" class="add-icon"><span class="add-span">Add Job</span></li></button>
                     </ul>
                 </div>
             </div>
             <div class="content">
                 <div class="content--heading-div">
-                    <h1 class="content--heading">Welcome</h1>
-                    <a class="signout-link links nav--links" href="">Sign out</a>
+                    <h1 class="content--heading"></h1>
+                    <h1 class="mobile-title"><a href="/" class="mobile-title-link">JobTrackr</a></h1>
+                    <div class="account">
+                        <img src="../../assets/icons/icons8-user-icon-64.png" alt="User icon" class="user-icon">
+                        <h1 class="userName"></h1>
+                        <div class="dropdown">
+                            <a class="signout-link" href="">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-tabs">
+                    <ul>
+                        <button class="tab-link tab-btns view-jobs-btn" onclick="viewJobsData()"><li><span>View Jobs</span></li></button>
+                        <button class="tab-link tab-btns add-job-btn" onclick="addJobsForm()"><li><span class="add-span">Add Job</span></li></button>
+                    </ul>
                 </div>
                 <div class="content--grid-div">
                     <div class="content--grid view-jobs-div">

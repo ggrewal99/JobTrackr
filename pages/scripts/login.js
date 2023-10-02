@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
                 .then((data) => {
                     localStorage.setItem("token", data.token);
+                    localStorage.setItem("name", data.user.name);
                     displayMessage("Success!", "green"); // Temporary success message
                     window.location.href =
                         "/pages/protected-pages/dashboard.html";

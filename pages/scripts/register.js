@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 })
                 .then((data) => {
-                    displayMessage("Success!", "green"); // Temporary success message
+                    displayMessage("User created!", "green"); // Temporary success message
                 })
                 .catch((error) => {
                     if (error.status === 401) {

@@ -48,7 +48,8 @@
     }
 
     .letter-r {
-        transform: translateY(-55%);
+        transform: translateY(0);
+        align-self: flex-start;
     }
 
     .bg-blue {
@@ -86,6 +87,10 @@
 
     .nav {
         padding-right: 5%;
+    }
+
+    .letter-r {
+        align-self: flex-start;
     }
 
     .nav-links-div {
