@@ -166,6 +166,7 @@ const deleteJob = (jobId) => {
                 confirmBackdrop.style.display = "none";
                 updateCardBackdrop.style.display = "none";
                 updateCard.style.display = "none";
+                window.location.reload();
             })
             .catch((error) => {
                 console.log("Something went wrong while deleting");
