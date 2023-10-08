@@ -14,6 +14,14 @@ body {
     min-height: 100vh;
 }
 
+.nav-title-div {
+    background-color: transparent;
+}
+
+.nav--title-link {
+    color: #3661d7;
+}
+
 .about-content {
     display: flex;
     flex-direction: column;
