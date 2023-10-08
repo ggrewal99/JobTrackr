@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const msg = document.querySelector(".msg");
 
     const loading = document.querySelector(".loading");
+    const body = document.body;
 
     loginBtn.addEventListener("click", function (e) {
         e.preventDefault();
@@ -123,5 +124,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const setloading = () => {
         loading.classList.toggle("show");
+        if (loading.classList.contains("show")) {
+            body.style.overflow = "hidden";
+        } else {
+            body.style.overflow = "auto";
+        }
     };
 });
