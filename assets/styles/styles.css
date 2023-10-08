@@ -20,6 +20,22 @@ body {
     min-height: 100vh;
 }
 
+.loading {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    z-index: 100;
+}
+
+.show {
+    display: flex;
+}
+
 .bg-blue {
     position: absolute;
     top: 0;
@@ -86,9 +102,29 @@ body {
 
 .nav--login-link:hover,
 .nav--about-link:hover,
-.nav--contact-link:hover, .links:hover {
+.nav--contact-link:hover,
+.links:hover {
     background-color: #e8e8e8;
     transition: all 0.5s;
+}
+
+/* MOBILE SCREENS */
+
+.btn-mobile-nav {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: none;
+}
+
+.icon-mobile-nav {
+    height: 4rem;
+    width: 4rem;
+    padding: 0.5rem;
+}
+
+.close {
+    display: none;
 }
 
 .title-section {
@@ -139,7 +175,7 @@ body {
 .main-btn {
     position: absolute;
     left: 50%;
-    bottom: 30%;
+    bottom: 25%;
     transform: translateX(-50%);
 }
 
@@ -239,4 +275,13 @@ body {
 .facebook-logo:hover {
     transform: translateY(-10%);
     transition: all 0.5s;
+}
+
+.address {
+    text-align: center;
+}
+
+.copyright {
+    text-align: center;
+    /* line-height: 2rem !important; */
 }

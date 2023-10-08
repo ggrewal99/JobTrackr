@@ -2,9 +2,9 @@
 //     window.location.href = "/pages/login.html";
 // }
 
-const BACKEND_URL = "http://localhost:3000";
-const viewBtn = document.querySelector(".view-jobs-btn");
-const addBtn = document.querySelector(".add-job-btn");
+const BACKEND_URL = "https://jobtrackr-hicn.onrender.com";
+const viewBtn = document.querySelectorAll(".view-jobs-btn");
+const addBtn = document.querySelectorAll(".add-job-btn");
 const viewJobsDiv = document.querySelector(".view-jobs-div");
 const addJobDiv = document.querySelector(".add-job-div");
 const jobCount = document.querySelector(".jobCount");
@@ -21,11 +21,19 @@ const updateCard = document.querySelector(".update-card-popup");
 const updateCardBackdrop = document.querySelector(".update-card-backdrop");
 const confirmBackdrop = document.querySelector(".confirm-backdrop");
 const signOutLink = document.querySelector(".signout-link");
+const account = document.querySelector(".account");
+const dropdown = document.querySelector(".dropdown");
+const loading = document.querySelector(".loading");
 
 msg.style.display = "none";
 
+account.addEventListener("click", function () {
+    dropdown.classList.toggle("dropdown-open");
+});
+
 signOutLink.addEventListener("click", function () {
     localStorage.removeItem("token");
+    localStorage.removeItem("name");
     console.log(localStorage.getItem("token"));
     signOutLink.href = "/pages/login.html";
     history.replaceState(null, null, "/pages/login.html");
@@ -38,21 +46,33 @@ const verifyLogin = () => {
 
         message.innerHTML =
             "User logged out. Head to <a href='/pages/login.html'>login page</a>";
+        return;
     }
+    const welcomeMsg = document.querySelector(".content--heading");
+    const userName = document.querySelector(".userName");
+    welcomeMsg.innerHTML = `Welcome, ${localStorage.getItem("name")}!`;
+    userName.innerHTML = `${localStorage.getItem("name")}`;
 };
 
 /* VIEW JOBS */
 
 const viewJobsData = () => {
+    setloading();
     var pendingCounter = 0,
         inProgressCounter = 0,
         declinedCounter = 0,
         acceptedCounter = 0;
     addJobDiv.style.display = "none";
     viewJobsDiv.style.display = "grid";
-    viewBtn.style.backgroundColor = "#1c41a7";
-    addBtn.style.backgroundColor = "#3661d7";
-    console.log(localStorage.getItem("token"));
+
+    viewBtn.forEach((viewBtn) => {
+        viewBtn.style.backgroundColor = "#1c41a7";
+    });
+
+    addBtn.forEach((addBtn) => {
+        addBtn.style.backgroundColor = "#3661d7";
+    });
+    // console.log(localStorage.getItem("token"));
     axios
         .get(`${BACKEND_URL}/api/v1/jobs`, {
             headers: {
@@ -70,6 +90,7 @@ const viewJobsData = () => {
             }
         })
         .then((data) => {
+            setloading();
             console.log(data);
 
             jobCount.textContent = data.count;
@@ -94,7 +115,8 @@ const viewJobsData = () => {
             populateViewJobs(data);
         })
         .catch((error) => {
-            console.log(localStorage.getItem("token"));
+            setloading();
+            // console.log(localStorage.getItem("token"));
             if (error.response && error.response.status === 401) {
                 console.log("Error");
             } else {
@@ -144,6 +166,7 @@ const deleteJob = (jobId) => {
                 confirmBackdrop.style.display = "none";
                 updateCardBackdrop.style.display = "none";
                 updateCard.style.display = "none";
+                window.location.reload();
             })
             .catch((error) => {
                 console.log("Something went wrong while deleting");
@@ -153,12 +176,18 @@ const deleteJob = (jobId) => {
 
 /* ADD JOBS */
 
-addBtn.addEventListener("click", function () {
+const addJobsForm = () => {
     addJobDiv.style.display = "flex";
     viewJobsDiv.style.display = "none";
-    addBtn.style.backgroundColor = "#1c41a7";
-    viewBtn.style.backgroundColor = "#3661d7";
-});
+
+    viewBtn.forEach((viewBtn) => {
+        viewBtn.style.backgroundColor = "#3661d7";
+    });
+
+    addBtn.forEach((addBtn) => {
+        addBtn.style.backgroundColor = "#1c41a7";
+    });
+};
 
 addBtnForm.addEventListener("click", function (e) {
     e.preventDefault();
@@ -284,7 +313,7 @@ const viewJob = (jobId) => {
                         updatedData.status = statusUpdateInput.value;
                     }
                     console.log(updatedData);
-                    console.log("Token check:", localStorage.getItem("token"));
+                    // console.log("Token check:", localStorage.getItem("token"));
                     axios
                         .patch(
                             `${BACKEND_URL}/api/v1/jobs/${jobId}`,
@@ -422,10 +451,20 @@ function displayMessage(text, color) {
 const showViewJobs = () => {
     addJobDiv.style.display = "none";
     viewJobsDiv.style.display = "grid";
-    viewBtn.style.backgroundColor = "#1c41a7";
-    addBtn.style.backgroundColor = "#3661d7";
+
+    viewBtn.forEach((viewBtn) => {
+        viewBtn.style.backgroundColor = "#1c41a7";
+    });
+
+    addBtn.forEach((addBtn) => {
+        addBtn.style.backgroundColor = "#3661d7";
+    });
 
     viewJobsData();
+};
+
+const setloading = () => {
+    loading.classList.toggle("show");
 };
 
 // Initially, set "View Jobs" as selected and show its content

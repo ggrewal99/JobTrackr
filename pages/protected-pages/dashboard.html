@@ -2,7 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        />
         <title>Dashboard</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,26 +15,34 @@
         />
         <link rel="stylesheet" href="../../assets/styles/styles.css" />
         <link rel="stylesheet" href="../../assets/styles/dashboard.css" />
+        <link
+            rel="stylesheet"
+            href="../../assets/styles/media-queries/styles.css"
+        />
+        <link
+            rel="stylesheet"
+            href="../../assets/styles/media-queries/dashboard.css"
+        />
     </head>
     <body>
         <div class="gradient-bg"></div>
         <div class="update-card-popup">
             <div class="fields">
                 <label for="company" name="company">Company</label>
-                <input type="text" class="company-update">
+                <input type="text" class="company-update" />
             </div>
             <div class="fields">
                 <label for="position" name="position">Position</label>
-                <input type="text" class="position-update">
+                <input type="text" class="position-update" />
             </div>
-            <div class="fields">  
+            <div class="fields">
                 <label for="status" name="status">Status</label>
                 <select id="status" class="status-update">
-                <option value="">Please select</option>
-                <option value="Pending">Pending</option>
-                <option value="In progress">In progress</option>
-                <option value="Declined">Declined</option>
-                <option value="Accepted">Accepted</option>
+                    <option value="">Please select</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In progress">In progress</option>
+                    <option value="Declined">Declined</option>
+                    <option value="Accepted">Accepted</option>
                 </select>
             </div>
             <div class="update-popup-btns">
@@ -52,43 +63,128 @@
         <div class="dashboard-content">
             <div class="sidebar">
                 <div class="heading">
-                    <h1 class="title"><a href="/" class="title-link">JobTrackr</a></h1>
+                    <h1 class="title">
+                        <a href="/" class="title-link">JobTrackr</a>
+                    </h1>
                     <!-- <h3>Dashboard</h3> -->
                 </div>
                 <div class="sidebar--tabs">
                     <ul>
-                        <button class="tab-link sidebar-btns view-jobs-btn" onclick="viewJobsData()"><li><img src="../../assets/icons/icons8-dashboard-65.png" alt="Dashboard icon" class="dashboard-icon"><span>View Jobs</span></li></button>
-                        <button class="tab-link sidebar-btns add-job-btn"><li><img src="../../assets/icons/icons8-add-120.png" alt="Add icon" class="add-icon"><span class="add-span">Add Job</span></li></button>
+                        <button
+                            class="tab-link sidebar-btns view-jobs-btn"
+                            onclick="viewJobsData()"
+                        >
+                            <li>
+                                <img
+                                    src="../../assets/icons/icons8-dashboard-65.png"
+                                    alt="Dashboard icon"
+                                    class="dashboard-icon"
+                                /><span>View Jobs</span>
+                            </li>
+                        </button>
+                        <button
+                            class="tab-link sidebar-btns add-job-btn"
+                            onclick="addJobsForm()"
+                        >
+                            <li>
+                                <img
+                                    src="../../assets/icons/icons8-add-120.png"
+                                    alt="Add icon"
+                                    class="add-icon"
+                                /><span class="add-span">Add Job</span>
+                            </li>
+                        </button>
                     </ul>
                 </div>
             </div>
             <div class="content">
                 <div class="content--heading-div">
-                    <h1 class="content--heading">Welcome</h1>
-                    <a class="signout-link links nav--links" href="">Sign out</a>
+                    <h1 class="content--heading"></h1>
+                    <h1 class="mobile-title">
+                        <a href="/" class="mobile-title-link">JobTrackr</a>
+                    </h1>
+                    <div class="account">
+                        <img
+                            src="../../assets/icons/icons8-user-icon-64.png"
+                            alt="User icon"
+                            class="user-icon"
+                        />
+                        <h1 class="userName"></h1>
+                        <div class="dropdown">
+                            <a class="signout-link" href="">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-tabs">
+                    <ul>
+                        <button
+                            class="tab-link tab-btns view-jobs-btn"
+                            onclick="viewJobsData()"
+                        >
+                            <li><span>View Jobs</span></li>
+                        </button>
+                        <button
+                            class="tab-link tab-btns add-job-btn"
+                            onclick="addJobsForm()"
+                        >
+                            <li><span class="add-span">Add Job</span></li>
+                        </button>
+                    </ul>
                 </div>
                 <div class="content--grid-div">
+                    <div class="loading">
+                        <img
+                            src="../../assets/gifs/icons8-loading.gif"
+                            alt="loading"
+                        />
+                    </div>
                     <div class="content--grid view-jobs-div">
-                        <div class='card card-main'>
-                            <div class='card-main-content'>
-                                <h2 class='card-main-content-title'>Total jobs</h2>
-                                <h1 class='card-main-content-value jobCount'>0</h1>
+                        <div class="card card-main">
+                            <div class="card-main-content">
+                                <h2 class="card-main-content-title">
+                                    Total jobs
+                                </h2>
+                                <h1 class="card-main-content-value jobCount">
+                                    0
+                                </h1>
                             </div>
-                            <div class='card-main-content'>
-                                <h2 class='card-main-content-title'>Pending</h2>
-                                <h1 class='card-main-content-value pendingCount'>0</h1>
+                            <div class="card-main-content">
+                                <h2 class="card-main-content-title">Pending</h2>
+                                <h1
+                                    class="card-main-content-value pendingCount"
+                                >
+                                    0
+                                </h1>
                             </div>
-                            <div class='card-main-content'>
-                                <h2 class='card-main-content-title'>In progress</h2>
-                                <h1 class='card-main-content-value inProgressCount'>0</h1>
+                            <div class="card-main-content">
+                                <h2 class="card-main-content-title">
+                                    In progress
+                                </h2>
+                                <h1
+                                    class="card-main-content-value inProgressCount"
+                                >
+                                    0
+                                </h1>
                             </div>
-                            <div class='card-main-content'>
-                                <h2 class='card-main-content-title'>Declined</h2>
-                                <h1 class='card-main-content-value declinedCount'>0</h1>
+                            <div class="card-main-content">
+                                <h2 class="card-main-content-title">
+                                    Declined
+                                </h2>
+                                <h1
+                                    class="card-main-content-value declinedCount"
+                                >
+                                    0
+                                </h1>
                             </div>
-                            <div class='card-main-content'>
-                                <h2 class='card-main-content-title'>Accepted</h2>
-                                <h1 class='card-main-content-value acceptedCount'>0</h1>
+                            <div class="card-main-content">
+                                <h2 class="card-main-content-title">
+                                    Accepted
+                                </h2>
+                                <h1
+                                    class="card-main-content-value acceptedCount"
+                                >
+                                    0
+                                </h1>
                             </div>
                         </div>
                         <div class="job-cards"></div>
@@ -98,57 +194,30 @@
                     <div class="add-job-div">
                         <h1 class="add-job-title">Add a job</h1>
                         <div class="add-job-form">
-                        <label for="company" name="company">Company</label>
-                        <input type="text" class="company">
-                        <label for="position" name="position">Position</label>
-                        <input type="text" class="position">
-                        <label for="status" name="status">Status</label>
-                        <select id="status" class="status">
-                            <option value="">Please select</option>
-                            <option value="Pending">Pending</option>
-                            <option value="In progress">In progress</option>
-                            <option value="Declined">Declined</option>
-                            <option value="Accepted">Accepted</option>
-                        </select>
-                        <button class="form-add-btn">Add</button>
-                        <p class="msg"></p>
-                    </div>
+                            <label for="company" name="company">Company</label>
+                            <input type="text" class="company" />
+                            <label for="position" name="position"
+                                >Position</label
+                            >
+                            <input type="text" class="position" />
+                            <label for="status" name="status">Status</label>
+                            <select id="status" class="status">
+                                <option value="">Please select</option>
+                                <option value="Pending">Pending</option>
+                                <option value="In progress">In progress</option>
+                                <option value="Declined">Declined</option>
+                                <option value="Accepted">Accepted</option>
+                            </select>
+                            <button class="form-add-btn">Add</button>
+                            <p class="msg"></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer">
-            <div class="footer-content">
-                <h1 class="footer--title">JobTrackr</h1>
-                <div class="footer--links">
-                    <a href="/" class="footer--links-about">About</a>
-                    <a href="/" class="footer--links-tos">Terms of Service</a>
-                    <a href="/" class="footer--links-policy">Privacy Policy</a>
-                </div>
-                <div class="footer--logos" id="footer--logos">
-                    <a href="https://www.linkedin.com/"
-                        ><img
-                            src="../../assets/logos/icons8-linkedin-48.png"
-                            alt="Linkedin logo"
-                            class="linkedin-logo"
-                    /></a>
-                    <a href="https://twitter.com/"
-                        ><img
-                            src="../../assets/logos/icons8-twitterx-50.png"
-                            alt="X logo"
-                            class="x-logo"
-                    /></a>
-                    <a href="https://facebook.com/"
-                        ><img
-                            src="../../assets/logos/icons8-facebook-48.png"
-                            alt="Facebook logo"
-                            class="facebook-logo"
-                    /></a>
-                </div>
-                <p class="address">123 Sydney St, NSW 0000, Australia</p>
-                <p class="copyright">&copy; 2023 JobTrackr</p>
-            </div>
-            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-            <script type = "text/javascript" src="../scripts/dashboard.js"></script>
+        <div class="footer"></div>
+        <script src="/components/footer.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script type="text/javascript" src="../scripts/dashboard.js"></script>
     </body>
 </html>

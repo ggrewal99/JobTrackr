@@ -1,4 +1,4 @@
-const BACKEND_URL = "http://localhost:3000";
+const BACKEND_URL = "https://jobtrackr-hicn.onrender.com";
 
 document.addEventListener("DOMContentLoaded", function () {
     const nameInput = document.querySelector(".form-name");
@@ -11,12 +11,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const registerBtn = document.querySelector(".btn-reg");
     const msg = document.querySelector(".msg");
 
+    const loading = document.querySelector(".loading");
+
     loginBtn.addEventListener("click", function (e) {
         e.preventDefault();
         const email = emailInput.value.trim();
         const password = passwordInput.value;
 
         if (isValidForm(email, password)) {
+            setloading();
             const formData = {
                 email: email,
                 password: password,
@@ -40,13 +43,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 })
                 .then((data) => {
+                    setloading();
                     localStorage.setItem("token", data.token);
+                    localStorage.setItem("name", data.user.name);
                     displayMessage("Success!", "green"); // Temporary success message
-                    window.location.href = `${BACKEND_URL}/pages/protected-pages/dashboard.html`;
+                    window.location.href =
+                        "/pages/protected-pages/dashboard.html";
                     resetForm();
                 })
                 .catch((error) => {
-                    if (error.response.status === 401) {
+                    setloading();
+                    if (error.response && error.response.status === 401) {
                         displayMessage("Invalid email or password!");
                     } else {
                         displayMessage(
@@ -113,4 +120,8 @@ document.addEventListener("DOMContentLoaded", function () {
         emailInput.classList.remove("form-field-error");
         passwordInput.classList.remove("form-field-error");
     }
+
+    const setloading = () => {
+        loading.classList.toggle("show");
+    };
 });

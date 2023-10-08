@@ -2,7 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        />
         <title>Register</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,36 +13,34 @@
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
             rel="stylesheet"
         />
+
         <link rel="stylesheet" href="../assets/styles/styles.css" />
         <link rel="stylesheet" href="../assets/styles/register.css" />
+        <link
+            rel="stylesheet"
+            href="../assets/styles/media-queries/styles.css"
+        />
+        <link
+            rel="stylesheet"
+            href="../assets/styles/media-queries/register.css"
+        />
     </head>
     <body>
-        <div class="nav">
-            <div class="nav-title-div">
-                <h1 class="nav--title-link">
-                    <a href="../index.html" class="nav--title-link"
-                        >JobTrackr</a
-                    >
-                </h1>
-            </div>
-
-            <div class="nav-links-div">
-                <a
-                    href="../../pages/login.html"
-                    class="nav--links nav--login-link"
-                    >Log In</a
-                >
-                <a href="./about.html" class="nav--links nav--about-link">About</a>
-                <a href="#footer--logos" class="nav--links nav--contact-link">Contact</a>
-            </div>
+        <div class="loading">
+            <img src="../assets/gifs/icons8-loading.gif" alt="loading" />
         </div>
+        <div class="nav"></div>
 
         <div class="register-content">
             <div class="register-form">
                 <h1 class="register-form--title">Sign Up</h1>
                 <div class="register--inputs">
                     <input type="text" placeholder="Name*" class="form-name" />
-                    <input type="text" placeholder="Email*" class="form-email" />
+                    <input
+                        type="text"
+                        placeholder="Email*"
+                        class="form-email"
+                    />
                     <input
                         type="password"
                         placeholder="Password*"
@@ -54,41 +55,12 @@
                 <button class="btn-reg">Sign Up</button>
                 <p class="msg"></p>
             </div>
-            
         </div>
 
-        <div class="footer">
-            <div class="footer-content">
-                <h1 class="footer--title">JobTrackr</h1>
-                <div class="footer--links">
-                    <a href="/" class="footer--links-about">About</a>
-                    <a href="/" class="footer--links-tos">Terms of Service</a>
-                    <a href="/" class="footer--links-policy">Privacy Policy</a>
-                </div>
-                <div class="footer--logos" id="footer--logos">
-                    <a href="https://www.linkedin.com/"
-                        ><img
-                            src="../../assets/logos/icons8-linkedin-48.png"
-                            alt="Linkedin logo"
-                            class="linkedin-logo"
-                    /></a>
-                    <a href="https://twitter.com/"
-                        ><img
-                            src="../../assets/logos/icons8-twitterx-50.png"
-                            alt="X logo"
-                            class="x-logo"
-                    /></a>
-                    <a href="https://facebook.com/"
-                        ><img
-                            src="../../assets/logos/icons8-facebook-48.png"
-                            alt="Facebook logo"
-                            class="facebook-logo"
-                    /></a>
-                </div>
-                <p class="address">123 Sydney St, NSW 0000, Australia</p>
-                <p class="copyright">&copy; 2023 JobTrackr</p>
-            </div>
-        </div>
+        <div class="footer"></div>
+        <script src="../script.js"></script>
+        <script src="/components/navbar.js"></script>
+        <script src="/components/footer.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="./scripts/register.js"></script>
     </body>

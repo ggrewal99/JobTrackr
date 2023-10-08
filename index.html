@@ -2,7 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        />
         <title>JobTrackr</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,6 +14,10 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="./assets/styles/styles.css" />
+        <link
+            rel="stylesheet"
+            href="./assets/styles/media-queries/styles.css"
+        />
     </head>
     <body>
         <div class="bg-blue"></div>
@@ -36,6 +43,16 @@
                     >Contact</a
                 >
             </div>
+            <button class="btn-mobile-nav">
+                <img
+                    class="icon-mobile-nav open"
+                    src="./assets/icons/icons8-menu-96.png"
+                />
+                <img
+                    class="icon-mobile-nav close"
+                    src="./assets/icons/icons8-close-96.png"
+                />
+            </button>
         </div>
         <div class="title-section">
             <div class="title-section--1"><h1 class="title-1">Job</h1></div>
@@ -49,38 +66,9 @@
                 >
             </div>
         </div>
-        <div class="footer">
-            <div class="footer-content">
-                <h1 class="footer--title">JobTrackr</h1>
-                <div class="footer--links">
-                    <a href="/" class="footer--links-about">About</a>
-                    <a href="/" class="footer--links-tos">Terms of Service</a>
-                    <a href="/" class="footer--links-policy">Privacy Policy</a>
-                </div>
-                <div class="footer--logos" id="footer--logos">
-                    <a href="https://www.linkedin.com/" target="_blank"
-                        ><img
-                            src="../../assets/logos/icons8-linkedin-48.png"
-                            alt="Linkedin logo"
-                            class="linkedin-logo"
-                    /></a>
-                    <a href="https://twitter.com/" target="_blank"
-                        ><img
-                            src="../../assets/logos/icons8-twitterx-50.png"
-                            alt="X logo"
-                            class="x-logo"
-                    /></a>
-                    <a href="https://facebook.com/" target="_blank"
-                        ><img
-                            src="../../assets/logos/icons8-facebook-48.png"
-                            alt="Facebook logo"
-                            class="facebook-logo"
-                    /></a>
-                </div>
-                <p class="address">123 Sydney St, NSW 0000, Australia</p>
-                <p class="copyright">&copy; 2023 JobTrackr</p>
-            </div>
-        </div>
+        <div class="footer"></div>
         <script src="script.js"></script>
+        <script src="/components/navbar.js"></script>
+        <script src="/components/footer.js"></script>
     </body>
 </html>
