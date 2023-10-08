@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="footer-content">
             <h1 class="footer--title">JobTrackr</h1>
             <div class="footer--links">
-                <a href="/pages/about.html" class="footer--links-about"
+                <a href="https://jobtrackrwebapp.netlify.app/pages/about.html" class="footer--links-about"
                     >About</a
                 >
                 <a href="/" class="footer--links-tos">Terms of Service</a>
