@@ -1,17 +1,12 @@
 const BACKEND_URL = "https://jobtrackr-hicn.onrender.com";
 
 document.addEventListener("DOMContentLoaded", function () {
-    const nameInput = document.querySelector(".form-name");
     const emailInput = document.querySelector(".form-email");
     const passwordInput = document.querySelector(".form-password");
-    const confirmPasswordInput = document.querySelector(
-        ".form-confirm-password"
-    );
     const loginBtn = document.querySelector(".btn-log");
-    const registerBtn = document.querySelector(".btn-reg");
     const msg = document.querySelector(".msg");
+    const spinner = document.querySelector(".spinner-container");
 
-    const loading = document.querySelector(".loading");
     const body = document.body;
 
     loginBtn.addEventListener("click", function (e) {
@@ -19,8 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = emailInput.value.trim();
         const password = passwordInput.value;
 
+        spinner.classList.remove("d-none");
+        displayMessage("Please wait while the server processes your request", "grey");
+
         if (isValidForm(email, password)) {
-            setloading();
             const formData = {
                 email: email,
                 password: password,
@@ -42,20 +39,21 @@ document.addEventListener("DOMContentLoaded", function () {
                             "Something went wrong. Try again later!"
                         );
                     }
+
                 })
                 .then((data) => {
-                    setloading();
                     localStorage.setItem("token", data.token);
                     localStorage.setItem("name", data.user.name);
                     displayMessage("Success!", "green"); // Temporary success message
                     window.location.href =
                         "/pages/protected-pages/dashboard.html";
                     resetForm();
+                    spinner.classList.add("d-none");
                 })
                 .catch((error) => {
-                    setloading();
+                    spinner.classList.add("d-none");
                     if (error.response && error.response.status === 401) {
-                        displayMessage("Invalid email or password!");
+                        displayMessage("Invalid email or password!", "red");
                     } else {
                         displayMessage(
                             "Something went wrong. Try again later!",
@@ -121,13 +119,4 @@ document.addEventListener("DOMContentLoaded", function () {
         emailInput.classList.remove("form-field-error");
         passwordInput.classList.remove("form-field-error");
     }
-
-    const setloading = () => {
-        loading.classList.toggle("show");
-        if (loading.classList.contains("show")) {
-            body.style.overflow = "hidden";
-        } else {
-            body.style.overflow = "auto";
-        }
-    };
 });

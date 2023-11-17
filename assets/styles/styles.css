@@ -20,18 +20,6 @@ body {
     min-height: 100vh;
 }
 
-.loading {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-    z-index: 999;
-}
-
 .show {
     display: flex;
 }

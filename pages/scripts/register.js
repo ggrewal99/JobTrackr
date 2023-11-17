@@ -10,15 +10,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const registerBtn = document.querySelector(".btn-reg");
     const msg = document.querySelector(".msg");
 
-    const loading = document.querySelector(".loading");
 
     registerBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        setloading();
         const name = nameInput.value.trim();
         const email = emailInput.value.trim();
         const password = passwordInput.value.trim();
         const confirmPassword = confirmPasswordInput.value.trim();
+
+        spinner.classList.remove("d-none");
+        displayMessage("Please wait while the server processes your request", "grey");
+
         if (isValidForm(name, email, password, confirmPassword)) {
             const formData = {
                 name: name,
@@ -47,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 })
                 .then((data) => {
-                    setloading();
+                    spinner.classList.add("d-none");
                     displayMessage("User created!", "green"); // Temporary success message
                     localStorage.setItem("token", data.token);
                     localStorage.setItem("name", data.user.name);
@@ -55,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "/pages/protected-pages/dashboard.html";
                 })
                 .catch((error) => {
-                    setloading();
+                    spinner.classList.add("d-none");
                     displayMessage(error.message, "red");
                 });
         }

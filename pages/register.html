@@ -1,67 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-        />
-        <title>Register</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-            rel="stylesheet"
-        />
 
-        <link rel="stylesheet" href="../assets/styles/styles.css" />
-        <link rel="stylesheet" href="../assets/styles/register.css" />
-        <link
-            rel="stylesheet"
-            href="../assets/styles/media-queries/styles.css"
-        />
-        <link
-            rel="stylesheet"
-            href="../assets/styles/media-queries/register.css"
-        />
-    </head>
-    <body>
-        <div class="loading">
-            <img src="../assets/gifs/icons8-loading.gif" alt="loading" />
-        </div>
-        <div class="nav"></div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-        <div class="register-content">
-            <div class="register-form">
-                <h1 class="register-form--title">Sign Up</h1>
-                <div class="register--inputs">
-                    <input type="text" placeholder="Name*" class="form-name" />
-                    <input
-                        type="text"
-                        placeholder="Email*"
-                        class="form-email"
-                    />
-                    <input
-                        type="password"
-                        placeholder="Password*"
-                        class="form-password"
-                    />
-                    <input
-                        type="password"
-                        placeholder="Confirm Password*"
-                        class="form-confirm-password"
-                    />
+    <link rel="stylesheet" href="../assets/styles/styles.css" />
+    <link rel="stylesheet" href="../assets/styles/register.css" />
+    <link rel="stylesheet" href="../assets/styles/media-queries/styles.css" />
+    <link rel="stylesheet" href="../assets/styles/media-queries/register.css" />
+</head>
+
+<body>
+    <div class="loading">
+        <img src="../assets/gifs/icons8-loading.gif" alt="loading" />
+    </div>
+    <div class="nav"></div>
+
+    <div class="register-content">
+        <div class="register-form">
+            <h1 class="register-form--title">Sign Up</h1>
+            <div class="register--inputs">
+                <input type="text" placeholder="Name*" class="form-name" />
+                <input type="text" placeholder="Email*" class="form-email" />
+                <input type="password" placeholder="Password*" class="form-password" />
+                <input type="password" placeholder="Confirm Password*" class="form-confirm-password" />
+            </div>
+            <button class="btn-reg">Sign Up</button>
+            <p class="msg"></p>
+            <div class="d-flex justify-content-center d-none spinner-container">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
                 </div>
-                <button class="btn-reg">Sign Up</button>
-                <p class="msg"></p>
             </div>
         </div>
+    </div>
 
-        <div class="footer"></div>
-        <script src="../script.js"></script>
-        <script src="/components/navbar.js"></script>
-        <script src="/components/footer.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="./scripts/register.js"></script>
-    </body>
+    <div class="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="../script.js"></script>
+    <script src="/components/navbar.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./scripts/register.js"></script>
+</body>
+
 </html>
