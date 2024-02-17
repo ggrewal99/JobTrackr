@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     const registerBtn = document.querySelector(".btn-reg");
     const msg = document.querySelector(".msg");
+    const spinner = document.querySelector(".spinner-container");
 
 
     registerBtn.addEventListener("click", function (e) {
